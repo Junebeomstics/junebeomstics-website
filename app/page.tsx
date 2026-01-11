@@ -14,7 +14,7 @@ export default function Home() {
         <section className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <div className="flex justify-center mb-8">
+              <div className="flex justify-center mb-12">
                 <ProfileImage className="w-40 h-40 md:w-48 md:h-48" />
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
@@ -39,6 +39,17 @@ export default function Home() {
                 >
                   View Publications
                 </Link>
+                <a
+                  href="https://scholar.google.com/citations?user=Z_JYHdAAAAAJ&hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 bg-white text-gray-700 border-2 border-gray-300 rounded-lg hover:border-purple-500 hover:text-purple-600 transition-colors shadow-md hover:shadow-lg"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+                  </svg>
+                  Google Scholar
+                </a>
               </div>
             </div>
           </div>
