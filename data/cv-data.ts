@@ -7,6 +7,8 @@ export interface Publication {
   type: 'published' | 'preprint' | 'in_preparation';
   link?: string;
   arxivId?: string;
+  codeLink?: string;
+  presentedAt?: string; // Conference where the paper was presented
 }
 
 export interface ResearchProject {
@@ -131,6 +133,8 @@ export const researchProjects: ResearchProject[] = [
 
 export const publications: Publication[] = [
   // Published Papers
+  // Note: Update links with actual paper URLs from Google Scholar profile
+  // Google Scholar: https://scholar.google.com/citations?user=Z_JYHdAAAAAJ&hl=en
   {
     id: "pub-1",
     title: "Predicting task-related brain activity from resting-state brain dynamics with fMRI Transformers",
@@ -138,6 +142,8 @@ export const publications: Publication[] = [
     venue: "Imaging Neuroscience",
     year: 2025,
     type: "published",
+    link: "https://direct.mit.edu/imag/article/doi/10.1162/imag_a_00440/126557",
+    codeLink: "https://github.com/Transconnectome/SwiFUN",
   },
   {
     id: "pub-2",
@@ -146,6 +152,8 @@ export const publications: Publication[] = [
     venue: "Thirty-seventh Conference on Neural Information Processing Systems",
     year: 2023,
     type: "published",
+    link: "https://arxiv.org/abs/2307.05916",
+    codeLink: "https://github.com/Transconnectome/SwiFT",
   },
   {
     id: "pub-3",
@@ -154,6 +162,7 @@ export const publications: Publication[] = [
     venue: "Psychiatry and clinical neurosciences",
     year: 2023,
     type: "published",
+    link: "https://onlinelibrary.wiley.com/doi/10.1111/pcn.13554",
   },
   // Preprints
   {
@@ -192,6 +201,7 @@ export const publications: Publication[] = [
     venue: "In preparation",
     year: 2025,
     type: "in_preparation",
+    presentedAt: "Poster presented at Cognitive Computational Neuroscience (CCN) 2025, Amsterdam, The Netherlands",
   },
   {
     id: "prep-3",
@@ -200,6 +210,7 @@ export const publications: Publication[] = [
     venue: "In preparation",
     year: 2025,
     type: "in_preparation",
+    presentedAt: "Poster presented at Organization for Human Brain Mapping (OHBM) 2025, Brisbane, Australia",
   },
   {
     id: "prep-4",
@@ -208,22 +219,16 @@ export const publications: Publication[] = [
     venue: "In preparation",
     year: 2025,
     type: "in_preparation",
+    presentedAt: "Poster presented at Organization for Human Brain Mapping (OHBM) 2025, Brisbane, Australia",
   },
   {
     id: "prep-5",
-    title: "Predicting arbitrary task-related brain activations from the resting-state brain connectome with multi-modal Swin fMRI Transformer",
-    authors: "Lee, S.*, Kwon, J.*, Seo, J., Yoo, S., Cha, J.",
-    venue: "In preparation",
-    year: 2025,
-    type: "in_preparation",
-  },
-  {
-    id: "prep-6",
     title: "NeuroMamba: A State-Space Foundation Model for Functional MRI",
     authors: "Choi, J., Park, D., Kwon, J., Yoo, S., Cha, J.",
     venue: "In preparation",
     year: 2025,
     type: "in_preparation",
+    presentedAt: "Spotlight talk and poster at NeurIPS 2025 BrainBodyFM workshop, San Diego",
   },
 ];
 
