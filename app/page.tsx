@@ -117,11 +117,6 @@ export default function Home() {
                           <span className="font-medium">Thesis:</span> {edu.thesis}
                         </p>
                       )}
-                      {edu.gpa && (
-                        <p className="text-gray-700 mt-2">
-                          <span className="font-medium">GPA:</span> {edu.gpa}
-                        </p>
-                      )}
                     </div>
                   </div>
                 </div>
