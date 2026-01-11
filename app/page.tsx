@@ -57,7 +57,7 @@ export default function Home() {
                 models, and psychiatric disorder diagnosis.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Previously, I completed my Master's degree at Seoul National University, where 
+                Previously, I completed my Master&apos;s degree at Seoul National University, where 
                 I developed SwiFT (Swin 4D fMRI Transformer) and worked on various projects 
                 involving generative models for neuroimaging and psychiatric disorder diagnosis. 
                 My work spans multiple neuroimaging modalities including functional MRI, 
