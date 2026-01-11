@@ -14,7 +14,7 @@ export default function Home() {
         <section className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <div className="flex justify-center mb-12">
+              <div className="flex justify-center mb-16 md:mb-20">
                 <ProfileImage className="w-40 h-40 md:w-48 md:h-48" />
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
