@@ -96,16 +96,26 @@ export default function Home() {
                     </div>
                     <div className="flex-grow">
                       <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                        <div>
-                          <h3 className="text-xl font-semibold text-gray-900">
-                            {edu.degree}
-                          </h3>
+                        <div className="flex-1">
+                          {edu.degree.includes(' and ') ? (
+                            <div className="space-y-1">
+                              {edu.degree.split(' and ').map((degree, idx) => (
+                                <h3 key={idx} className="text-xl font-semibold text-gray-900">
+                                  {degree.trim()}
+                                </h3>
+                              ))}
+                            </div>
+                          ) : (
+                            <h3 className="text-xl font-semibold text-gray-900">
+                              {edu.degree}
+                            </h3>
+                          )}
                           <p className="text-lg text-gray-700 mt-1">
                             {edu.institution}
                           </p>
                           <p className="text-gray-600">{edu.location}</p>
                         </div>
-                        <span className="text-gray-600 mt-2 md:mt-0 font-medium">{edu.period}</span>
+                        <span className="text-gray-600 mt-2 md:mt-0 font-medium whitespace-nowrap md:ml-4">{edu.period}</span>
                       </div>
                       {edu.advisor && (
                         <p className="text-gray-700 mt-2">
