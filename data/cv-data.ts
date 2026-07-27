@@ -137,6 +137,15 @@ export const publications: Publication[] = [
   // Google Scholar: https://scholar.google.com/citations?user=Z_JYHdAAAAAJ&hl=en
   {
     id: "pub-1",
+    title: "Learning brain dynamics across distinct scaling regimes reveals psychiatric signatures",
+    authors: "Bae, S., Kwon, J., Yoo, S., & Cha, J.",
+    venue: "Communications Biology",
+    year: 2026,
+    type: "published",
+    link: "https://www.nature.com/articles/s42003-026-10011-7",
+  },
+  {
+    id: "pub-2",
     title: "Predicting task-related brain activity from resting-state brain dynamics with fMRI Transformers",
     authors: "Kwon, J., Seo, J., ... & Cha, J.",
     venue: "Imaging Neuroscience",
@@ -146,7 +155,7 @@ export const publications: Publication[] = [
     codeLink: "https://github.com/Transconnectome/SwiFUN",
   },
   {
-    id: "pub-2",
+    id: "pub-3",
     title: "SwiFT: Swin 4D fMRI Transformer",
     authors: "Kim, P. Y.*, Kwon, J*,... & Moon, T.",
     venue: "Thirty-seventh Conference on Neural Information Processing Systems",
@@ -156,7 +165,7 @@ export const publications: Publication[] = [
     codeLink: "https://github.com/Transconnectome/SwiFT",
   },
   {
-    id: "pub-3",
+    id: "pub-4",
     title: "Resting-state theta-phase gamma amplitude coupling as a biomarker for the transdiagnostic dimensional approach in psychiatric disorders",
     authors: "Kim, M., Shim, Y., Kwon, J., Bae, S., Lee, J., Cha, J., ... & Kwon, J. S.",
     venue: "Psychiatry and clinical neurosciences",
@@ -167,31 +176,19 @@ export const publications: Publication[] = [
   // Preprints
   {
     id: "preprint-1",
-    title: "Spatiotemporal Learning of Brain Dynamics from fMRI Using Frequency-Specific Multi-Band Attention for Cognitive and Psychiatric Applications",
-    authors: "Bae, S., Kwon, J., Yoo, S., & Cha, J.",
-    venue: "arXiv preprint",
-    year: 2025,
+    title: "A retinotopic wiring principle of the human brain",
+    authors: "Amorosino, G., Caron, B., Kwon, J., Carrasco, M., Reid, C., Lenglet, C., Zimmermann, J., Yacoub, E., Ugurbil, K., Heilbronner, S. R., & Pestilli, F.",
+    venue: "bioRxiv (under review)",
+    year: 2026,
     type: "preprint",
-    arxivId: "2503.23394",
-    link: "https://arxiv.org/abs/2503.23394",
-  },
-  {
-    id: "preprint-2",
-    title: "Macro2Micro: Cross-modal Magnetic Resonance Imaging Synthesis Leveraging Multi-scale Brain Structures",
-    authors: "Kim, S.*, Kwon, J.*, Kwon, J.*, Bae, S., Lin, Y., Yoo, S., & Cha, J.",
-    venue: "arXiv preprint",
-    year: 2024,
-    type: "preprint",
-    arxivId: "2412.11277",
-    link: "https://arxiv.org/abs/2412.11277",
   },
   // Manuscripts in Preparation
   {
     id: "prep-1",
-    title: "A Benchmark for White Matter Tract Segmentation",
+    title: "Benchmarking Generalizability in Deep Learning-Based White Matter Tract Segmentation",
     authors: "Kwon, J., Amorosino, G., and Pestilli F.",
     venue: "In preparation",
-    year: 2025,
+    year: 2026,
     type: "in_preparation",
   },
   {
@@ -199,34 +196,25 @@ export const publications: Publication[] = [
     title: "SwiFT V2: Towards Large-scale Foundation Model for Functional MRI",
     authors: "Choi, J., Wang H., Kwon, J., Yoo, S., Cha, J.",
     venue: "In preparation",
-    year: 2025,
+    year: 2026,
     type: "in_preparation",
     presentedAt: "Poster presented at Cognitive Computational Neuroscience (CCN) 2025, Amsterdam, The Netherlands",
   },
   {
     id: "prep-3",
-    title: "Mapping Asymmetries in Structural Connectivity of the Visual Network",
-    authors: "Amorosino, G., Kwon, J., Carrasco M., Caron, B., and Pestilli F.",
+    title: "Enhancing Psychiatric Disorder Diagnosis: Integrating Multilabel Metadata with Contrastive Learning on T1 Structural MRI",
+    authors: "Han, D., Lee, A., Kwon, J., Cha, J.",
     venue: "In preparation",
-    year: 2025,
+    year: 2026,
     type: "in_preparation",
     presentedAt: "Poster presented at Organization for Human Brain Mapping (OHBM) 2025, Brisbane, Australia",
   },
   {
     id: "prep-4",
-    title: "Enhancing Psychiatric Disorder Diagnosis: Integrating Multilabel Metadata with Contrastive Learning on T1 Structural MRI",
-    authors: "Han, D., Lee, A., Kwon, J., Cha, J.",
-    venue: "In preparation",
-    year: 2025,
-    type: "in_preparation",
-    presentedAt: "Poster presented at Organization for Human Brain Mapping (OHBM) 2025, Brisbane, Australia",
-  },
-  {
-    id: "prep-5",
     title: "NeuroMamba: A State-Space Foundation Model for Functional MRI",
     authors: "Choi, J., Park, D., Kwon, J., Yoo, S., Cha, J.",
     venue: "In preparation",
-    year: 2025,
+    year: 2026,
     type: "in_preparation",
     presentedAt: "Spotlight talk and poster at NeurIPS 2025 BrainBodyFM workshop, San Diego",
   },
@@ -256,6 +244,11 @@ export const researchInterests = [
 ];
 
 export const honorsAndAwards = [
+  {
+    title: "Travel Award",
+    organization: "NeuroHackademy 2026, University of Washington, Seattle, WA",
+    year: 2026,
+  },
   {
     title: "Best Poster Award",
     organization: "Korean Human Brain Mapping (KHBM)",

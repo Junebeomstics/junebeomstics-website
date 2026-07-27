@@ -33,7 +33,7 @@ export default function PublicationCard({ publication }: PublicationCardProps) {
         <span className="font-medium">{publication.venue}</span>
         <span>•</span>
         <span>{publication.year}</span>
-        {publication.type === 'preprint' && publication.link && (
+        {publication.type === 'preprint' && publication.arxivId && publication.link && (
           <>
             <span>•</span>
             <a
