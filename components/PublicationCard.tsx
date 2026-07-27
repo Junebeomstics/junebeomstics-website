@@ -4,9 +4,19 @@ interface PublicationCardProps {
   publication: Publication;
 }
 
+// Matches "Kwon, J." / "Kwon, J*" but not "Kwon, J. S." (a different author).
+const SELF_AUTHOR = /(Kwon,\s+J\.?\*?)(?!\.?\s*S\.)/g;
+
+function highlightSelf(authors: string) {
+  // String.split with a capture group puts matches at odd indices.
+  return authors.split(SELF_AUTHOR).map((part, index) =>
+    index % 2 === 1 ? <strong key={index} className="font-bold text-gray-900">{part}</strong> : part
+  );
+}
+
 export default function PublicationCard({ publication }: PublicationCardProps) {
   const isEqualContributor = publication.authors.includes('*');
-  
+
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
       <h3 className={`text-lg font-semibold mb-2 ${publication.link ? 'text-blue-600 hover:text-blue-800 cursor-pointer' : 'text-gray-900'}`}>
@@ -24,7 +34,7 @@ export default function PublicationCard({ publication }: PublicationCardProps) {
         )}
       </h3>
       <p className="text-gray-700 mb-3">
-        {publication.authors}
+        {highlightSelf(publication.authors)}
         {isEqualContributor && (
           <span className="text-sm text-gray-500 ml-1">* denotes equal contribution</span>
         )}
