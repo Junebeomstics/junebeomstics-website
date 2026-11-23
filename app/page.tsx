@@ -1,220 +1,79 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProfileImage from '@/components/ProfileImage';
-import Link from 'next/link';
-import { personalInfo, education, researchInterests } from '@/data/cv-data';
-import { FaBrain, FaFlask, FaMicroscope, FaGraduationCap, FaUniversity } from 'react-icons/fa';
+import { news, personalInfo } from '@/data/cv-data';
+
+const delay = (ms: number) => ({ '--delay': `${ms}ms` }) as React.CSSProperties;
 
 export default function Home() {
+  const { links } = personalInfo;
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-20">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <div className="flex justify-center mb-16 md:mb-20">
-                <ProfileImage className="w-40 h-40 md:w-48 md:h-48" />
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-                {personalInfo.name}
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-700 mb-2 font-medium">
-                {personalInfo.currentPosition}
-              </p>
-              <p className="text-lg md:text-xl text-gray-600 mb-6">
-                {personalInfo.currentInstitution}
-              </p>
-              <div className="flex justify-center gap-4 flex-wrap">
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
-                >
-                  Contact Me
-                </a>
-                <Link
-                  href="/publications"
-                  className="inline-flex items-center px-6 py-3 bg-white text-gray-700 border-2 border-gray-300 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-colors shadow-md hover:shadow-lg"
-                >
-                  View Publications
-                </Link>
-                <a
-                  href="https://scholar.google.com/citations?user=Z_JYHdAAAAAJ&hl=en"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-white text-gray-700 border-2 border-gray-300 rounded-lg hover:border-purple-500 hover:text-purple-600 transition-colors shadow-md hover:shadow-lg"
-                >
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
-                  </svg>
-                  Google Scholar
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+      <main id="main" className="mx-auto w-full max-w-page flex-grow px-6 pb-20 pt-10">
+        <h1 className="sr-only">Junbeom Kwon</h1>
 
-        {/* About Section */}
-        <section className="py-12 bg-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">About</h2>
-            <div className="prose prose-lg max-w-none">
-              <p className="text-gray-700 leading-relaxed mb-6">
-                I am a Ph.D. student in Psychology at the University of Texas at Austin, 
-                working under the guidance of Prof. Franco Pestilli. My research focuses on 
-                applying deep learning and machine learning techniques to neuroimaging data, 
-                with particular interests in structural connectivity analysis, fMRI transformer 
-                models, and psychiatric disorder diagnosis.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Previously, I completed my Master&apos;s degree at Seoul National University, where 
-                I developed SwiFT (Swin 4D fMRI Transformer) and worked on various projects 
-                involving generative models for neuroimaging and psychiatric disorder diagnosis. 
-                My work spans multiple neuroimaging modalities including functional MRI, 
-                structural MRI, and diffusion MRI.
-              </p>
-            </div>
-          </div>
-        </section>
+        <div className="reveal">
+          <ProfileImage />
+        </div>
 
-        {/* Education Section */}
-        <section className="py-12 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 mb-8">
-              <FaGraduationCap className="text-4xl text-blue-600" />
-              <h2 className="text-3xl font-bold text-gray-900">Education</h2>
-            </div>
-            <div className="space-y-6">
-              {education.map((edu, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                        <FaUniversity className="text-white text-xl" />
-                      </div>
-                    </div>
-                    <div className="flex-grow">
-                      <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                        <div className="flex-1">
-                          {edu.degree.includes(' and ') ? (
-                            <div className="space-y-1">
-                              {edu.degree.split(' and ').map((degree, idx) => (
-                                <h3 key={idx} className="text-xl font-semibold text-gray-900">
-                                  {degree.trim()}
-                                </h3>
-                              ))}
-                            </div>
-                          ) : (
-                            <h3 className="text-xl font-semibold text-gray-900">
-                              {edu.degree}
-                            </h3>
-                          )}
-                          <p className="text-lg text-gray-700 mt-1">
-                            {edu.institution}
-                          </p>
-                          <p className="text-gray-600">{edu.location}</p>
-                        </div>
-                        <span className="text-gray-600 mt-2 md:mt-0 font-medium whitespace-nowrap md:ml-4">{edu.period}</span>
-                      </div>
-                      {edu.advisor && (
-                        <p className="text-gray-700 mt-2">
-                          <span className="font-medium">Advisor:</span> {edu.advisor}
-                        </p>
-                      )}
-                      {edu.thesis && (
-                        <p className="text-gray-700 mt-2">
-                          <span className="font-medium">Thesis:</span> {edu.thesis}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <div className="reveal mt-7 max-w-[40rem] space-y-4 text-pretty" style={delay(60)}>
+          <p>
+            Hi, I&rsquo;m Junbeom Kwon. I&rsquo;m a Ph.D. student in Psychology at{' '}
+            <a href="https://www.utexas.edu" className="ilink">The University of Texas at Austin</a> and a member of the{' '}
+            <a href="https://pestillilab.github.io/" className="ilink">Pestilli Lab</a>, where I work with Prof. Franco Pestilli.
+          </p>
+          <p>
+            I use deep learning models, AI agents, and neuroimaging data to understand how brain structure and function give
+            rise to behavior, cognition, and perception. Much of my work asks whether deep learning models still hold up on
+            datasets they have never seen, starting with a benchmark of white matter tract segmentation. I also study how white
+            matter connectivity relates to visual field maps and perceptual asymmetries.
+          </p>
+          <p>
+            I build open, reproducible neuroimaging tools on{' '}
+            <a href="https://brainlife.io/about/" className="ilink">brainlife.io</a>. One of them is BIDS2AI, an agentic framework
+            that turns neuroimaging datasets into AI-ready deep learning workflows.
+          </p>
+          <p>
+            Before Austin, I did my M.A. in Psychology at{' '}
+            <a href="https://en.snu.ac.kr" className="ilink">Seoul National University</a> with Prof. Jiook Cha at the{' '}
+            <a href="https://www.connectomelab.com/en/" className="ilink">Connectome Lab</a>, where I worked on{' '}
+            <a href="https://arxiv.org/abs/2307.05916" className="ilink">SwiFT</a>, a Swin 4D fMRI Transformer (NeurIPS
+            2023). I received my B.A. in Psychology and B.S. in Big Data Science from Sogang University.
+          </p>
+          <p>Feel free to reach out if you want to chat about research.</p>
+        </div>
 
-        {/* Research Interests Preview */}
-        <section className="py-12 bg-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center mb-8">
-              <div className="flex items-center gap-3">
-                <FaBrain className="text-4xl text-purple-600" />
-                <h2 className="text-3xl font-bold text-gray-900">Research Interests</h2>
-              </div>
-              <Link
-                href="/research"
-                className="text-blue-600 hover:text-blue-800 font-medium transition-colors flex items-center gap-1"
-              >
-                View All <span>→</span>
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {researchInterests.slice(0, 3).map((interest, index) => {
-                const icons = [FaBrain, FaFlask, FaMicroscope];
-                const Icon = icons[index] || FaBrain;
-                const colors = [
-                  'from-blue-500 to-cyan-500',
-                  'from-purple-500 to-pink-500',
-                  'from-green-500 to-emerald-500',
-                ];
-                return (
-                  <div
-                    key={index}
-                    className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-xl hover:border-blue-300 transition-all group"
-                  >
-                    <div className={`w-12 h-12 bg-gradient-to-br ${colors[index]} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                      <Icon className="text-white text-xl" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                      {interest.title}
-                    </h3>
-                    <p className="text-gray-700 text-sm leading-relaxed">{interest.description}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <p className="reveal mt-5 flex flex-wrap gap-x-5 gap-y-1 text-[13.5px]" style={delay(120)}>
+          <a href={`mailto:${personalInfo.email}`} className="ilink">Email</a>
+          <a href={links.scholar} target="_blank" rel="noopener noreferrer" className="ilink">Google Scholar</a>
+          <a href={links.github} target="_blank" rel="noopener noreferrer" className="ilink">GitHub</a>
+          <a href="/CV-JunbeomKwon.pdf" download="Junbeom-Kwon-CV.pdf" className="ilink">CV (PDF)</a>
+        </p>
 
-        {/* Quick Links */}
-        <section className="py-12 bg-gradient-to-br from-gray-50 to-blue-50">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Explore</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Link
-                href="/research"
-                className="bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-blue-500 hover:shadow-xl transition-all group relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full -mr-16 -mt-16 opacity-50 group-hover:opacity-75 transition-opacity"></div>
-                <div className="relative">
-                  <FaFlask className="text-4xl text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                    Research
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Learn about my research interests and ongoing projects in neuroimaging and deep learning.
-                  </p>
-                </div>
-              </Link>
-              <Link
-                href="/publications"
-                className="bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-purple-500 hover:shadow-xl transition-all group relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full -mr-16 -mt-16 opacity-50 group-hover:opacity-75 transition-opacity"></div>
-                <div className="relative">
-                  <FaGraduationCap className="text-4xl text-purple-600 mb-4 group-hover:scale-110 transition-transform" />
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
-                    Publications
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Browse my published papers, preprints, and manuscripts in preparation.
-                  </p>
-                </div>
-              </Link>
-            </div>
-          </div>
+        <hr className="mb-10 mt-10 border-line" />
+
+        <section className="reveal" style={delay(180)} aria-labelledby="news">
+          <h2 id="news" className="mb-4 text-[18px]">News</h2>
+          <ul>
+            {news.map((item) => (
+              <li key={`${item.date}-${item.text}`} className="grid gap-x-6 py-1.5 sm:grid-cols-[6.5rem_1fr]">
+                <p className="text-[13px] tabular-nums text-subtle sm:pt-px">{item.date}</p>
+                <p className="text-pretty">
+                  {item.text}
+                  {item.href && (
+                    <>
+                      {' '}
+                      <a href={item.href} target="_blank" rel="noopener noreferrer" className="ilink">
+                        ({item.linkLabel ?? 'link'})
+                      </a>
+                    </>
+                  )}
+                </p>
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
       <Footer />

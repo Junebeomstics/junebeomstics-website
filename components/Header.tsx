@@ -1,90 +1,44 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/research', label: 'Research' },
+  { href: '/publications', label: 'Publications' },
+  { href: '/cv', label: 'CV' },
+];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-xl font-semibold text-gray-900 hover:text-gray-700 transition-colors">
-            Junbeom Kwon
-          </Link>
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-6">
-            <Link href="/" className="text-gray-700 hover:text-gray-900 transition-colors">
-              Home
-            </Link>
-            <Link href="/research" className="text-gray-700 hover:text-gray-900 transition-colors">
-              Research
-            </Link>
-            <Link href="/publications" className="text-gray-700 hover:text-gray-900 transition-colors">
-              Publications
-            </Link>
-            <a href="#contact" className="text-gray-700 hover:text-gray-900 transition-colors">
-              Contact
-            </a>
-          </div>
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-gray-700 hover:text-gray-900"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {mobileMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden pb-4 space-y-2">
-            <Link
-              href="/"
-              className="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="/research"
-              className="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Research
-            </Link>
-            <Link
-              href="/publications"
-              className="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Publications
-            </Link>
-            <a
-              href="#contact"
-              className="block px-3 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact
-            </a>
-          </div>
-        )}
-      </nav>
+    <header className="border-b border-line">
+      <div className="mx-auto flex w-full max-w-page flex-col items-center gap-1 px-6 py-3 sm:flex-row sm:justify-between sm:gap-6">
+        <Link href="/" className="font-display text-[22px] font-semibold leading-tight tracking-tight text-fg">
+          Junbeom Kwon
+          <span className="ml-2.5 hidden font-sans text-[70%] font-light tracking-normal text-muted sm:inline">Psychology Ph.D. @ UT Austin</span>
+        </Link>
+        <nav aria-label="Main">
+          <ul className="flex items-center gap-5 text-[13.5px] sm:gap-6">
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  aria-current={isActive(link.href) ? 'page' : undefined}
+                  className={`underline-offset-[6px] decoration-accent hover:underline hover:decoration-wavy ${
+                    isActive(link.href) ? 'font-normal underline decoration-1' : 'font-light'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 }
