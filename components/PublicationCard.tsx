@@ -1,4 +1,5 @@
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaStar } from 'react-icons/fa';
+import { FiArrowUpRight } from 'react-icons/fi';
 import { Publication } from '@/data/cv-data';
 
 interface PublicationCardProps {
@@ -26,11 +27,11 @@ export default function PublicationCard({ publication }: PublicationCardProps) {
     <article className="grid gap-x-6 gap-y-1 border-t border-line py-5 first:border-t-0 sm:grid-cols-[3.5rem_1fr]">
       <p className="text-[13px] tabular-nums text-subtle sm:pt-0.5">{showYear ? year : ''}</p>
       <div>
-        <h3 className="font-sans text-[15px] font-normal leading-snug tracking-normal">
+        <h3 className="font-sans text-[15px] font-medium leading-snug tracking-normal">
           {link ? (
             <a href={link} target="_blank" rel="noopener noreferrer" className="ilink">
               {title}
-              <span aria-hidden="true" className="ml-1">↗</span>
+              <FiArrowUpRight aria-hidden="true" className="ml-0.5 inline-block align-[-0.1em]" />
             </a>
           ) : (
             title
@@ -48,10 +49,10 @@ export default function PublicationCard({ publication }: PublicationCardProps) {
               <li
                 key={item.label}
                 className={`rounded-full px-2.5 py-0.5 text-[12px] ${
-                  item.award ? 'bg-accent-soft font-normal text-accent' : 'border border-line text-muted'
+                  item.award ? 'bg-accent-soft font-medium text-accent' : 'border border-line text-muted'
                 }`}
               >
-                {item.award && '★ '}
+                {item.award && <FaStar aria-hidden="true" className="mr-1 inline-block align-[-0.08em] text-[10px]" />}
                 {item.label}
               </li>
             ))}

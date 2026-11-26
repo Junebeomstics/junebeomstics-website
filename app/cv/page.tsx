@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 const Gutter = ({ children }: { children: React.ReactNode }) => (
-  <li className="grid gap-x-6 gap-y-0.5 border-t border-line py-3 first:border-t-0 sm:grid-cols-[7rem_1fr]">{children}</li>
+  <li className="grid gap-x-6 gap-y-0.5 border-t border-line py-3 first:border-t-0 sm:grid-cols-[8.75rem_1fr]">{children}</li>
 );
 
 export default function CvPage() {
@@ -45,7 +45,7 @@ export default function CvPage() {
               <Gutter key={edu.degree}>
                 <p className="text-[13px] tabular-nums text-subtle">{edu.period}</p>
                 <div>
-                  <p className="font-normal text-fg">{edu.degree}</p>
+                  <p className="font-medium text-fg">{edu.degree}</p>
                   <p className="text-muted">
                     {edu.institution}, {edu.location}
                   </p>
@@ -64,7 +64,7 @@ export default function CvPage() {
               <Gutter key={`${pos.role}-${pos.period}-${pos.organization}`}>
                 <p className="text-[13px] tabular-nums text-subtle">{pos.period}</p>
                 <div>
-                  <p className="font-normal text-fg">{pos.role}</p>
+                  <p className="font-medium text-fg">{pos.role}</p>
                   <p className="text-muted">{pos.organization}</p>
                   {pos.summary && <p className="text-[13.5px] text-muted">{pos.summary}</p>}
                 </div>
@@ -77,13 +77,13 @@ export default function CvPage() {
           <div className="space-y-6">
             {awardGroups.map((group) => (
               <div key={group.heading}>
-                <h3 className="mb-1 font-sans text-[13px] font-normal uppercase tracking-wider text-subtle">{group.heading}</h3>
+                <h3 className="mb-1 mt-2 font-sans text-[14px] font-medium tracking-normal text-muted">{group.heading}</h3>
                 <ul>
                   {group.items.map((item) => (
                     <Gutter key={`${item.date}-${item.title}`}>
                       <p className="text-[13px] tabular-nums text-subtle">{item.date}</p>
                       <p className="text-muted">
-                        <span className="font-normal text-fg">{item.title}</span>, {item.organization}
+                        <span className="font-medium text-fg">{item.title}</span>, {item.organization}
                       </p>
                     </Gutter>
                   ))}
@@ -111,7 +111,7 @@ export default function CvPage() {
               <Gutter key={`${course.term}-${course.course}`}>
                 <p className="text-[13px] text-subtle">{course.term}</p>
                 <div>
-                  <p className="font-normal text-fg">{course.course}</p>
+                  <p className="font-medium text-fg">{course.course}</p>
                   <p className="text-muted">
                     {course.role}, {course.institution}
                   </p>
@@ -126,7 +126,7 @@ export default function CvPage() {
           <div className="space-y-6">
             {service.map((group) => (
               <div key={group.heading}>
-                <h3 className="mb-1 font-sans text-[13px] font-normal uppercase tracking-wider text-subtle">{group.heading}</h3>
+                <h3 className="mb-1 mt-2 font-sans text-[14px] font-medium tracking-normal text-muted">{group.heading}</h3>
                 <EntryList entries={group.items} />
               </div>
             ))}

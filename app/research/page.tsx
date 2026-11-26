@@ -30,7 +30,7 @@ export default function ResearchPage() {
           <dl className="space-y-5">
             {researchInterests.map((interest) => (
               <div key={interest.title}>
-                <dt className="font-normal text-fg">{interest.title}</dt>
+                <dt className="font-medium text-fg">{interest.title}</dt>
                 <dd className="mt-0.5 max-w-[40rem] text-pretty text-muted">{interest.description}</dd>
               </div>
             ))}

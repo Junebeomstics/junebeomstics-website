@@ -14,7 +14,7 @@ export default function Section({ title, id, action, children }: SectionProps) {
         <h2 className="text-[18px]">{title}</h2>
         {action}
       </div>
-      {children}
+      <div>{children}</div>
     </section>
   );
 }

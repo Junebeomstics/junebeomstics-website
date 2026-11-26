@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { FaGithub } from 'react-icons/fa';
+import { FiArrowUpRight } from 'react-icons/fi';
 import { ResearchProject } from '@/data/cv-data';
 
 interface ProjectCardProps {
@@ -53,7 +54,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="ilink inline-flex items-center gap-1.5">
               {link.label === 'Code' && <FaGithub aria-hidden="true" />}
               {link.label}
-              {link.label !== 'Code' && <span aria-hidden="true">↗</span>}
+              {link.label !== 'Code' && <FiArrowUpRight aria-hidden="true" />}
             </a>
           ))}
           {project.tags && <span className="text-subtle">{project.tags.join(' · ')}</span>}
